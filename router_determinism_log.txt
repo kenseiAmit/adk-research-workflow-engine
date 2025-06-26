@@ -1,0 +1,9 @@
+Router determinism check - agents/router.py DomainClassifierAgent
+Config: temperature=0.3, response_mime_type=application/json
+Query: According to Leonard Suskind and his work on theoretical physics, do we live in a universe without free will?
+
+  Run 1: Domain=physics      Confidence=0.9  Complexity=moderate
+  Run 2: Domain=physics      Confidence=0.9  Complexity=high
+  Run 3: Domain=physics      Confidence=0.9  Complexity=moderate
+
+Result: domain classification is consistent across repeated runs.
