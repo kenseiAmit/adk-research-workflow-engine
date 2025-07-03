@@ -1,9 +1,13 @@
-# ADK Multi-Agent Research Workflow Engine
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="Google ADK Research Workflow Engine" width="100%" />
+  <br/><br/>
+  ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+  ![Google ADK](https://img.shields.io/badge/Framework-Google%20ADK%20%2B%20Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+  ![Quality](https://img.shields.io/badge/Evaluator%20Score-0.92%20(Excellent)-16A34A?style=flat-square)
+  ![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)
+</div>
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
-![Google ADK](https://img.shields.io/badge/Framework-Google%20ADK%20%2B%20Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
-![Quality](https://img.shields.io/badge/Evaluator%20Score-0.92%20(Excellent)-16A34A?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)
+---
 
 Seven-stage autonomous research workflow built on **Google Agent Development Kit (ADK)** and **Vertex AI Gemini (`gemini-2.0-flash`)**—orchestrating deterministic JSON query routing (`temperature=0.3`), concurrent `ParallelAgent` academic/web source gathering, `LoopAgent` critic-driven refinement with early `escalate` termination, claim-level fact-checking, and APA-cited synthesis ([`research_report.md`](research_report.md)).
 
