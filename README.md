@@ -1,10 +1,12 @@
 <div align="center">
   <img src="assets/hero-banner.svg" alt="Google ADK Research Workflow Engine" width="100%" />
   <br/><br/>
-  ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
-  ![Google ADK](https://img.shields.io/badge/Framework-Google%20ADK%20%2B%20Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
-  ![Quality](https://img.shields.io/badge/Evaluator%20Score-0.92%20(Excellent)-16A34A?style=flat-square)
-  ![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Framework-Google%20ADK%20%2B%20Vertex%20AI-4285F4?style=flat-square&amp;logo=googlecloud&amp;logoColor=white" alt="Google ADK" />
+    <img src="https://img.shields.io/badge/Evaluator%20Score-0.92%20%28Excellent%29-16A34A?style=flat-square" alt="Quality" />
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-475569?style=flat-square" alt="License" /></a>
+  </p>
 </div>
 
 ---
