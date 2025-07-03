@@ -1,48 +1,96 @@
 # ADK Multi-Agent Research Workflow Engine
 
-Seven-stage autonomous academic & technical research pipeline built on **Google Agent Development Kit (ADK)** and **Vertex AI Gemini (`gemini-2.0-flash`)**—orchestrating deterministic JSON query routing, concurrent `ParallelAgent` multi-index source gathering, `LoopAgent` critic-driven iterative refinement with early `escalate` termination, claim-level fact-checking, and APA-cited synthesis.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![Google ADK](https://img.shields.io/badge/Framework-Google%20ADK%20%2B%20Vertex%20AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Quality](https://img.shields.io/badge/Evaluator%20Score-0.92%20(Excellent)-16A34A?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)
+
+Seven-stage autonomous research workflow built on **Google Agent Development Kit (ADK)** and **Vertex AI Gemini (`gemini-2.0-flash`)**—orchestrating deterministic JSON query routing (`temperature=0.3`), concurrent `ParallelAgent` academic/web source gathering, `LoopAgent` critic-driven refinement with early `escalate` termination, claim-level fact-checking, and APA-cited synthesis ([`research_report.md`](research_report.md)).
+
+![ADK Loop Convergence & Telemetry](docs/images/adk_loop_convergence_telemetry.png)
 
 ---
 
-## Seven-Stage ADK Orchestration Topology
+## 1. Seven-Stage ADK Orchestration Architecture
 
 ```mermaid
 flowchart LR
-    A["1. QueryRouter<br/>(temp=0.3 JSON Schema)"] --> B["2. ParallelAgent Fan-Out<br/>(Web + arXiv + Scholar)"]
-    B --> C["3. Aggregator<br/>(SequentialAgent Fan-In)"]
-    C --> D["4. LoopAgent (Max 5x)<br/>(Researcher <-> Critic + Early Escalate)"]
-    D --> E["5. FactChecker<br/>(Claim Verification)"]
-    E --> F["6. ReportSynthesizer<br/>(APA Executive Report)"]
-    F --> G["7. PerformanceEvaluator<br/>(Stage Latency & Quality Telemetry)"]
+    A["1. QueryRouter<br/>(JSON Schema · temp=0.3)"] --> B["2. ParallelAgent Fan-Out<br/>(Web + arXiv + Scholar)"]
+    B --> C["3. Aggregator<br/>(17 -> 15 Ranked Sources)"]
+    C --> D["4. LoopAgent (Max 5x)<br/>(0.75 -> 0.88 -> 0.92 Escalate)"]
+    D --> E["5. FactChecker<br/>(Credibility = 0.85)"]
+    E --> F["6. Synthesizer<br/>(research_report.md)"]
+    F --> G["7. PerformanceEvaluator<br/>(0.92 Overall · 86.68s)"]
 ```
 
 ---
 
-## Verified End-to-End Execution Metrics
+## 2. Verified Execution Traces
 
-| Pipeline Stage | Verified Telemetry | Artifact |
-| :--- | :--- | :--- |
-| **1. Deterministic Routing (`3/3` runs)** | `3/3` identical `physics` classifications at `0.90` confidence | [`router_determinism_log.txt`](router_determinism_log.txt) |
-| **2–3. Concurrent `ParallelAgent` Gathering** | `17` unique academic & web sources gathered concurrently (`15` top-ranked) | [`run_log.txt`](run_log.txt) |
-| **4. `LoopAgent` Critic Refinement** | Quality converged **`0.75` → `0.88` → `0.92`** (`>= 0.90` threshold triggered early `escalate`) | [`run_log.txt`](run_log.txt) |
-| **5–6. Fact-Check & APA Synthesis** | `0.85` credibility (`5` verified claims, `2` hedged), `0.92` coherence (`10` APA citations) | [`research_report.md`](research_report.md) |
-| **7. Overall `PerformanceEvaluator` Score** | **`0.92 / 1.00` (`excellent`)** across all 7 stages in `86.68s` | [`run_log.txt`](run_log.txt) |
+### Router Repeatability Verification ([`router_determinism_log.txt`](router_determinism_log.txt))
+```text
+Router determinism check - agents/router.py DomainClassifierAgent
+Config: temperature=0.3, response_mime_type=application/json
+Query: According to Leonard Suskind and his work on theoretical physics, do we live in a universe without free will?
+
+  Run 1: Domain=physics      Confidence=0.9  Complexity=moderate
+  Run 2: Domain=physics      Confidence=0.9  Complexity=high
+  Run 3: Domain=physics      Confidence=0.9  Complexity=moderate
+
+Result: domain classification is consistent across repeated runs.
+```
+
+### End-to-End Pipeline Evaluation Summary ([`run_log.txt`](run_log.txt))
+```text
+================================================================================
+
+# Research Report: According to Leonard Suskind and his work on theoretical physics, do we live in a universe without free will?
+
+## Executive Summary
+Leonard Susskind interprets free will as an emergent phenomenon compatible with a physically determined universe, rooted in the deterministic or probabilistically deterministic laws of fundamental physics, rather than an acausal force existing outside these laws.
+
+**Domain:** physics
+**Credibility Score:** 0.85/1.00
+**Sources Consulted:** 17
+**Research Iterations:** 3
 
 ---
 
-## Quick Start
+## Research Findings
+
+Leonard Susskind, a leading theoretical physicist, approaches the concept of free will not through direct philosophical treatises but by framing it within the fundamental laws of physics, primarily quantum mechanics and general relativity. He consistently emphasizes a universe governed by deterministic or probabilistically deterministic principles, as evidenced by the Schrödinger equation's description of wave function evolution and the information preservation tenets of black hole physics and the holographic principle. Susskind's work, particularly his 'Theoretical Minimum' series, underscores a rule-bound cosmos where physical processes unfold according to strict, albeit complex, laws, leaving little room for a libertarian, acausal free will.
+
+Susskind generally espouses a compatibilist viewpoint, suggesting that our subjective experience of free will can be reconciled with a physically determined reality. He interprets free will as an emergent phenomenon or a 'useful illusion' that arises from the intricate complexity of the brain and consciousness. Rather than a fundamental property that violates physical laws, he views our sense of making choices as a high-level description of underlying physical and electrochemical processes. This perspective is frequently highlighted in his informal discussions and Q&A sessions following his lectures, where he often challenges the notion of a free will that exists outside the framework
+
+... (report continues, total 8392 characters)
+
+Full report saved to: ./research_report.md
+
+================================================================================
+EXECUTION SUMMARY
+================================================================================
+
+  Workflow Metrics:
+   • Total Stages: 6
+   • Research Iterations: 3
+   • Sources Found: 17
+   • Credibility Score: 0.85
+   • Citations: 10
+
+ Execution successful!
+```
+
+---
+
+## 3. Quick Start
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # Configure GOOGLE_API_KEY or GOOGLE_CLOUD_PROJECT
+cp .env.example .env
 
-# Run the 7-stage ADK research pipeline
 python main.py
-
-# Override research query via environment variable
-RESEARCH_QUERY="Analyze fault-tolerant consensus algorithms in geo-distributed databases" python main.py
 ```
 
 ## License
