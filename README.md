@@ -11,6 +11,8 @@
 
 ---
 
+![Google ADK Autonomous Research Engine — 7-Stage Architecture](docs/images/architecture_blueprint.png)
+
 Seven-stage autonomous research workflow built on **Google Agent Development Kit (ADK)** and **Vertex AI Gemini (`gemini-2.0-flash`)**—orchestrating deterministic JSON query routing (`temperature=0.3`), concurrent `ParallelAgent` academic/web source gathering, `LoopAgent` critic-driven refinement with early `escalate` termination, claim-level fact-checking, and APA-cited synthesis ([`research_report.md`](research_report.md)).
 
 ![ADK Loop Convergence & Telemetry](docs/images/adk_loop_convergence_telemetry.png)
